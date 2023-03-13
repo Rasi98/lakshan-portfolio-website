@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "./Navbar.jsx";
+import Navbar from "../common/Navbar.jsx";
+import {MeshDistortMaterial, OrbitControls, Sphere} from "@react-three/drei";
+import {Canvas} from "@react-three/fiber";
+import Typewriter from 'typewriter-effect';
 
 const Section = styled.div`
   height: 100vh;
@@ -12,11 +15,10 @@ const Section = styled.div`
 `;
 
 const Container = styled.div`
-  height: 100vh;
-  scroll-snap-align: center;
+  height: 100%;
   width: 80%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const LeftSection = styled.div`
@@ -34,7 +36,6 @@ const Title = styled.h1`
 
 const Name = styled.h3`
   font-size: 30px;
-  margin-top: 0.5rem;
 `;
 
 const Desc = styled.span`
@@ -53,30 +54,42 @@ const Button = styled.button`
   width: 100px;
   padding: 7px;
   border-radius: 5px;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 1.1rem;
   background-color: rgb(20,203,189,0.8);
   border: 0;
   color: white;
   margin-top: 0.8rem;
+
+  :hover{
+    cursor: pointer;
+    background-color: rgb(8, 209, 152, 0.8);
+  }
 `;
 
 const RightSection = styled.div`
   flex: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 `;
 
-const Image = styled.img`
+const Img = styled.img`
+  height: 500px;
   object-fit: contain;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   animation: animate 2s infinite ease alternate;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed lightseagreen;
   
-  @keyframes animate {
-    to{
-      transform: translateY(15px);
-    }
-  }
+  //@keyframes animate {
+  //  to{
+  //    transform: translateY(10px);
+  //  }
+  //}
 `;
 
 const Home = () => {
@@ -85,7 +98,18 @@ const Home = () => {
             <Navbar/>
             <Container>
                 <LeftSection>
-                    <Title>&lt;HelloWorld/&gt;</Title>
+                    <Title>
+                        <Typewriter
+                            options={{
+                                strings: ['< HelloWorld />'],
+                                autoStart: true,
+                                loop: true,
+                                delay: 200,
+                                pauseFor: 2000
+                            }}
+                        />
+                    </Title>
+
                     <Name>_Jenson Ackless_</Name>
                     <Desc>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the.</Desc>
@@ -93,7 +117,15 @@ const Home = () => {
                     <Button>More</Button>
                 </LeftSection>
                 <RightSection>
-                    <Image src={"../src/assets/logo/logo-main.png"}></Image>
+                    <Canvas>
+                        <OrbitControls enableZoom={false}/>
+                        <ambientLight intensity={1}/>
+                        <directionalLight position={[3,2,1]}/>
+                        <Sphere args={[1,100,200]} scale={2}>
+                            <MeshDistortMaterial color={"#009991"} attach={"material"} distort={0.24} speed={2}/>
+                        </Sphere>
+                    </Canvas>
+                    <Img src={"../src/assets/images/me.png"}></Img>
                 </RightSection>
             </Container>
         </Section>

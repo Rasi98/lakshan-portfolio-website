@@ -1,7 +1,9 @@
-import Home from "./components/Home.jsx";
-import About from "./components/About.jsx";
-import Contact from "./components/Contact.jsx";
+import Home from "./components/home/Home.jsx";
+import About from "./components/about/About.jsx";
+import Contact from "./components/contact/Contact.jsx";
 import styled from "styled-components";
+import 'react-toastify/dist/ReactToastify.css';
+import Test from "./components/test.jsx";
 
 const Container = styled.div`
   height: 100vh;
@@ -26,6 +28,7 @@ function App() {
       <Home/>
       <About/>
       <Contact/>
+        <Test/>
     </Container>
   )
 }
