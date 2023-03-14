@@ -4,6 +4,7 @@ import Navbar from "../common/Navbar.jsx";
 import {MeshDistortMaterial, OrbitControls, Sphere} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
 import Typewriter from 'typewriter-effect';
+import Cube from "../3DModels/Cube.jsx";
 
 const Section = styled.div`
   height: 100vh;
@@ -12,6 +13,12 @@ const Section = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+`;
+
+const CubeRow = styled.div`
+  position: absolute;
+  margin-right: 90%;
 `;
 
 const Container = styled.div`
@@ -22,7 +29,7 @@ const Container = styled.div`
 `;
 
 const LeftSection = styled.div`
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +42,7 @@ const Title = styled.h1`
 `;
 
 const Name = styled.h3`
-  font-size: 30px;
+  font-size: 35px;
 `;
 
 const Desc = styled.span`
@@ -68,7 +75,7 @@ const Button = styled.button`
 `;
 
 const RightSection = styled.div`
-  flex: 3;
+  flex: 1;
   position: relative;
 `;
 
@@ -80,22 +87,25 @@ const Img = styled.img`
   left: 0;
   right: 0;
   margin: auto;
-  animation: animate 2s infinite ease alternate;
+  animation: animate1 2s infinite ease alternate;
   position: absolute;
   border-radius: 50%;
   border: 2px dashed lightseagreen;
   
-  //@keyframes animate {
-  //  to{
-  //    transform: translateY(10px);
-  //  }
-  //}
+  @keyframes animate1 {
+    to{
+      transform: translateY(5px);
+    }
+  }
 `;
 
 const Home = () => {
     return(
         <Section>
             <Navbar/>
+            {/*<CubeRow>*/}
+            {/*    <Cube/>*/}
+            {/*</CubeRow>*/}
             <Container>
                 <LeftSection>
                     <Title>
@@ -110,7 +120,7 @@ const Home = () => {
                         />
                     </Title>
 
-                    <Name>_Jenson Ackless_</Name>
+                    <Name>Lakshan Rasingolla</Name>
                     <Desc>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy text ever since the.</Desc>
                     <Line/>
