@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import Navbar from "../common/Navbar.jsx";
 import {MeshDistortMaterial, OrbitControls, Sphere} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
 import Typewriter from 'typewriter-effect';
-import Cube from "../3DModels/Cube.jsx";
 
 const Section = styled.div`
   height: 100vh;
@@ -16,13 +15,7 @@ const Section = styled.div`
   position: relative;
 `;
 
-const CubeRow = styled.div`
-  position: absolute;
-  margin-right: 90%;
-`;
-
 const Container = styled.div`
-  height: 100%;
   width: 80%;
   display: flex;
   justify-content: space-between;
@@ -39,16 +32,31 @@ const LeftSection = styled.div`
 
 const Title = styled.h1`
   font-size: 75px;
+  margin-bottom: 1.5rem;
+`;
+
+const Heading = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 `;
 
 const Name = styled.h3`
-  font-size: 35px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(56, 215, 201);
+`;
+const NormalText = styled.h5`
+  font-size: 25px;
+  font-family: 'Lobster', cursive;
+  font-weight: 100;
 `;
 
 const Desc = styled.span`
   text-align: end;
   font-style: italic;
-  color: lightgray;
+  color: lightcyan; 
+  line-height: 1.5;
 `;
 
 const Line = styled.hr`
@@ -58,19 +66,21 @@ const Line = styled.hr`
 `;
 
 const Button = styled.button`
-  width: 100px;
-  padding: 7px;
+  width: fit-content;
+  padding: 10px 25px;
+  border: 2px solid rgb(20,203,189);
   border-radius: 5px;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.1rem;
-  background-color: rgb(20,203,189,0.8);
-  border: 0;
-  color: white;
+  background-color: rgb(20,203,189,0.1);
+  color: rgb(20,203,189);
   margin-top: 0.8rem;
 
   :hover{
     cursor: pointer;
-    background-color: rgb(8, 209, 152, 0.8);
+    color: white;
+    border: 2px solid rgb(8, 209, 152,0.8);
+    background-color: rgb(8, 209, 152,0.8);
   }
 `;
 
@@ -90,7 +100,7 @@ const Img = styled.img`
   animation: animate1 2s infinite ease alternate;
   position: absolute;
   border-radius: 50%;
-  border: 2px dashed lightseagreen;
+  border: 2px dashed #3ae3da;
   
   @keyframes animate1 {
     to{
@@ -103,9 +113,6 @@ const Home = () => {
     return(
         <Section>
             <Navbar/>
-            {/*<CubeRow>*/}
-            {/*    <Cube/>*/}
-            {/*</CubeRow>*/}
             <Container>
                 <LeftSection>
                     <Title>
@@ -119,19 +126,18 @@ const Home = () => {
                             }}
                         />
                     </Title>
-
-                    <Name>Lakshan Rasingolla</Name>
-                    <Desc>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the.</Desc>
+                    <Heading><NormalText>Hi there! I'm </NormalText>&nbsp;<Name>Lakshan Rasingolla</Name></Heading>
+                    <Desc>" I'm a front-end software developer who is crafting clean, elegant and efficient code that brings ideas into reality.
+                        I enjoy the journey of coding and creating exceptional digital solutions "</Desc>
                     <Line/>
-                    <Button>More</Button>
+                    <Button>Let's talk</Button>
                 </LeftSection>
                 <RightSection>
                     <Canvas>
                         <OrbitControls enableZoom={false}/>
                         <ambientLight intensity={1}/>
                         <directionalLight position={[3,2,1]}/>
-                        <Sphere args={[1,100,200]} scale={2}>
+                        <Sphere className={"canvas"} args={[1,100,200]} scale={2}>
                             <MeshDistortMaterial color={"#009991"} attach={"material"} distort={0.24} speed={2}/>
                         </Sphere>
                     </Canvas>

@@ -5,7 +5,6 @@ import Map from "./Map.jsx";
 import Footer from "../common/Footer.jsx";
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import ReactLoading from 'react-loading';
-import isEmail from 'validator/lib/isEmail';
 import emailData from '../static/emailjs.json';
 
 
@@ -153,13 +152,6 @@ const Contact = () => {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
-        // const email = e.target.value;
-        // if (isEmail(email)){
-        //     console.log(">>>>valid");
-        // }
-        // else {
-        //     console.log(">>>invalid");
-        // }
     }
 
     return(

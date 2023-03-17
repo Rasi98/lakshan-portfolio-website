@@ -1,6 +1,7 @@
 import Home from "./components/home/Home.jsx";
 import About from "./components/about/About.jsx";
 import Contact from "./components/contact/Contact.jsx";
+import Skills from "./components/skills/skills.jsx";
 import styled from "styled-components";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -26,6 +27,7 @@ function App() {
     <Container>
       <Home/>
       <About/>
+        <Skills/>
       <Contact/>
     </Container>
   )

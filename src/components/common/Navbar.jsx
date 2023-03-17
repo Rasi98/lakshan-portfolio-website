@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Cube from "../3DModels/Cube.jsx"
 
 const Section = styled.div`
   display: flex;
@@ -16,6 +15,7 @@ const Container = styled.div`
 `;
 const List = styled.ul`
   display: flex;
+  align-items: center;
   gap: 50px;
   list-style: none;
 `;
@@ -47,8 +47,24 @@ const ListItem = styled.li`
   :hover::after{
     transform: scaleX(1);
     transform-origin: bottom left;
-    //color: rgba(89, 239, 226, 0.8);
-    //transform: scale(1.1);
+  }
+`;
+
+const Button = styled.button`
+  width: fit-content;
+  padding: 5px 15px;
+  border: 2px solid rgb(20,203,189);
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: rgb(20,203,189,0.1);
+  color: rgb(20,203,189);
+
+  :hover{
+    cursor: pointer;
+    color: white;
+    border: 2px solid rgb(8, 209, 152,0.8);
+    background-color: rgb(8, 209, 152,0.8);
   }
 `;
 
@@ -56,11 +72,12 @@ const Navbar = () => {
     return(
         <Section>
             <Container>
-                {/*<Cube/>*/}
                     <List>
                         <ListItem>Home</ListItem>
                         <ListItem>About</ListItem>
+                        <ListItem>Skills</ListItem>
                         <ListItem>Contact</ListItem>
+                        <Button>Resume</Button>
                     </List>
             </Container>
         </Section>
