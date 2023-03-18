@@ -1,46 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-
-const Section = styled.div`
-  height: 100vh;
-  scroll-snap-align: center;
-  display: flex;
-  justify-content: center;
-`;
-
-const Container = styled.div`
-  height: 100vh;
-  width: 80%;
-  display: flex;
-  gap: 2rem;
-`;
-
-const Left = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Right = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
+import {Grid} from "@mui/material";
 
 const Title = styled.h1`
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 4rem;
+    margin-bottom: 1.4rem;
+  }
 `;
 
 const Desc = styled.span`
   text-align: center;
   font-style: italic;
-  color: lightgray;
-  font-size: 1.2rem;
+  color: white;
+  font-size: 1.3rem;
   line-height: 1.5;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: justify;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
 `;
 
 const Row = styled.div`
@@ -50,6 +44,10 @@ const Row = styled.div`
   justify-content: space-evenly;
   gap: 10px;
   margin-bottom: 1rem;
+
+  @media only screen and (max-width: 600px) {
+    gap: 3rem;
+  }
 `;
 
 const Col = styled.div`
@@ -58,26 +56,40 @@ const Col = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Img = styled.img`
     width: 80px;
+
+  @media only screen and (max-width: 600px) {
+    width: 50px;
+  }
 `;
 
 const Skills = () => {
     return(
-        <Section>
-            <Container>
-                <Left>
+        <Grid container sx={{ height:'100vh',scrollSnapAlign:'center',padding:{xs:'1rem',md:'2rem 4rem'}}}>
+            <Grid item xs={12} md={6}>
+                <Grid container
+                      sx={{ height: '100%', padding:'1rem',gap:{xs:'1.5rem',sm:'1rem',marginBottom:{md:'2rem'}}}}
+                      direction={"column"}
+                      justifyContent={"center"}
+                      alignItems={"center"}>
                     <Title>&lt;Skills/&gt;</Title>
                     <Desc>
                         I have been working with several cutting edge tools & techniques related to
                         frontend, backend & databases.Whether you need a simple website or a complex web application,
-                        I have the skills, expertise & courage to bring your vision to life. Here are a few technologies
-                        I’ve been working with recently....
+                        I have the skills, expertise & courage to bring your vision to life.
                     </Desc>
-                </Left>
-                <Right>
+                    <Desc>Here are a few technologies I’ve been working with recently....</Desc>
+                </Grid>
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <Grid container sx={{ height: '100%' }} justifyContent={"center"} alignItems={"center"}>
                     <Row>
                         <Col><Img src={"../../src/assets/icons/html.png"}/>HTML</Col>
                         <Col><Img src={"../../src/assets/icons/css.png"}/>CSS</Col>
@@ -93,9 +105,9 @@ const Skills = () => {
                         <Col><Img src={"../../src/assets/icons/java.png"}/>Java</Col>
                         <Col><Img src={"../../src/assets/icons/sql.png"}/>SQL</Col>
                     </Row>
-                </Right>
-            </Container>
-        </Section>
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }
 

@@ -4,16 +4,22 @@ import styled from "styled-components";
 const Section = styled.div`
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 4%;
 `;
 
 const FooterText = styled.span`
   font-weight: 300;
   font-size: 0.9rem;
   color: lightgray;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 1rem;
+  }
 `;
 
 const getYear = () => {

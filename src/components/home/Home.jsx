@@ -4,48 +4,39 @@ import Navbar from "../common/Navbar.jsx";
 import {MeshDistortMaterial, OrbitControls, Sphere} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
 import Typewriter from 'typewriter-effect';
-
-const Section = styled.div`
-  height: 100vh;
-  scroll-snap-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-`;
-
-const Container = styled.div`
-  height: 100%;
-  width: 80%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const LeftSection = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 20px;
-`;
+import {Grid} from "@mui/material";
 
 const Title = styled.h1`
   font-size: 75px;
   margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 2.2rem;
+    text-align: center;
+  }
 `;
 
 const Heading = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  margin-bottom: 1rem;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
 `;
 
 const Name = styled.h3`
   font-size: 3rem;
   font-weight: 700;
   color: rgb(56, 215, 201);
+
+  @media only screen and (max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 const NormalText = styled.h5`
   font-size: 25px;
@@ -58,12 +49,38 @@ const Desc = styled.span`
   font-style: italic;
   color: lightcyan; 
   line-height: 1.5;
+  margin-bottom: 1rem;
+
+  @media only screen and (max-width: 600px) {
+    text-align: center;
+    font-weight: 300;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media only screen and (min-width: 900px) and (max-width: 1200px) {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
 `;
 
 const Line = styled.hr`
   width: 100%;
   border: 1px solid lightgray;
   border-radius: 2px;
+
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 const Button = styled.button`
@@ -75,7 +92,7 @@ const Button = styled.button`
   font-size: 1.1rem;
   background-color: rgb(20,203,189,0.1);
   color: rgb(20,203,189);
-  margin-top: 0.8rem;
+  margin-top: 1rem;
 
   :hover{
     cursor: pointer;
@@ -83,11 +100,13 @@ const Button = styled.button`
     border: 2px solid rgb(8, 209, 152,0.8);
     background-color: rgb(8, 209, 152,0.8);
   }
-`;
 
-const RightSection = styled.div`
-  flex: 1;
-  position: relative;
+  @media only screen and (max-width: 600px) {
+    margin-top: 0.8rem;
+    color: white;
+    border: 2px solid rgb(8, 209, 152,0.8);
+    background-color: rgb(8, 209, 152,0.8);
+  }
 `;
 
 const Img = styled.img`
@@ -108,14 +127,33 @@ const Img = styled.img`
       transform: translateY(5px);
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    height: 65%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    height: 80%;
+  }
 `;
 
 const Home = () => {
     return(
-        <Section>
-            <Navbar/>
-            <Container>
-                <LeftSection>
+        <Grid container sx={{ height:'100vh',scrollSnapAlign:'center',padding:{xs:'1rem',md:'2rem 4rem'}}}>
+            <Grid item xs={12} >
+                <Navbar/>
+            </Grid>
+            <Grid container>
+                <Grid item
+                      xs={12}
+                      md={12}
+                      lg={6}
+                      p={2}
+                      display={'flex'}
+                      flexDirection={'column'}
+                      justifyContent={'center'}
+                      alignItems={{xs:'center',md:'center',lg:'flex-end'}}
+                >
                     <Title>
                         <Typewriter
                             options={{
@@ -127,13 +165,13 @@ const Home = () => {
                             }}
                         />
                     </Title>
-                    <Heading><NormalText>Hi there! I'm </NormalText>&nbsp;<Name>Lakshan Rasingolla</Name></Heading>
+                    <Heading><NormalText>Hi there! I'm </NormalText><Name>Lakshan Rasingolla</Name></Heading>
                     <Desc>" I'm a front-end software developer who is crafting clean, elegant and efficient code that brings ideas into reality.
                         I enjoy the journey of coding and creating exceptional digital solutions "</Desc>
                     <Line/>
                     <Button>Let's talk</Button>
-                </LeftSection>
-                <RightSection>
+                </Grid>
+                <Grid item xs={12} md={12} lg={6} sx={{position:'relative',padding:'3px'}}>
                     <Canvas>
                         <OrbitControls enableZoom={false}/>
                         <ambientLight intensity={1}/>
@@ -143,9 +181,9 @@ const Home = () => {
                         </Sphere>
                     </Canvas>
                     <Img src={"../src/assets/images/me.png"}></Img>
-                </RightSection>
-            </Container>
-        </Section>
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }
 export default Home;

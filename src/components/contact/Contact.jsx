@@ -1,49 +1,33 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
+import Footer from "../common/Footer.jsx"
 import emailjs from '@emailjs/browser';
 import styled from "styled-components";
 import Map from "./Map.jsx";
-import Footer from "../common/Footer.jsx";
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import ReactLoading from 'react-loading';
 import emailData from '../static/emailjs.json';
-
-
-const Section = styled.div`
-  height: 100vh;
-  scroll-snap-align: center;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Container = styled.div`
-  width: 100%;
-  height: 96%;
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-`;
-
-const Left = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-const Right = styled.div`
-  flex: 2;
-  padding: 30px;
-`;
+import {Box, Grid} from "@mui/material";
 
 const Form = styled.form`
   width: 70%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
 `;
 
 const Title = styled.h1`
   font-weight: 200;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    text-align: center;
+  }
 `;
 
 const Input = styled.input`
@@ -100,12 +84,20 @@ const Contact = () => {
     const [email , setEmail] = useState("");
     const [messege , setMessege] = useState("");
     const [loading, setLoading] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const formRef = useRef(null);
     const inputRefs = {
         name : useRef(),
         email : useRef(),
         messege : useRef(),
     }
+
+    useEffect(() => {
+        const width = window.innerWidth;
+        if (width<=600){
+            setIsMobile(true);
+        }
+    },[])
 
     const notify = () => toast.success("Messege sent successfully!");
     const error = () => toast.error("Please fill all the fields!");
@@ -152,62 +144,80 @@ const Contact = () => {
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
-    }
+    };
 
     return(
-        <Section>
-            <Container>
-                <Left>
-                    <Form ref={formRef} onSubmit={handleSubmit}>
-                        <Title>Contact Me</Title>
-                        <Input
-                            ref={inputRefs.name}
-                            type={"text"}
-                            name={"name"}
-                            placeholder={"Your name"}
-                            value={name}
-                            onChange={e => setName(e.target.value)}
-                        />
-                        <Input
-                            ref={inputRefs.email}
-                            type={"email"}
-                            name={"email"}
-                            placeholder={"Your email"}
-                            value={email}
-                            onChange={e => handleEmailChange(e)}
-                        />
-                        <InputArea
-                            ref={inputRefs.messege}
-                            placeholder={"Write your messege here"}
-                            value={messege} name={"message"}
-                            rows={10}
-                            onChange={e => setMessege(e.target.value)}
-                        />
-                        <Button type={"submit"}>
-                            {loading ? (<Load><Spin type={"spin"} color={"#ffffff"}/></Load>) : <span>Send</span>}
-                        </Button>
-                    </Form>
-                </Left>
-                <Right>
-                    <Map/>
-                </Right>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={2000}
-                    hideProgressBar
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-                    transition={Flip}
-                    closeButton={false}
-                />
-            </Container>
-            <Footer/>
-        </Section>
+        <Box>
+            <Grid container sx={{ height:'100vh',scrollSnapAlign:'center', padding:{xs:'1rem 1rem 0',md:'2rem 4rem 0'}}}>
+                {!isMobile &&
+                    <Grid item xs={12} md={6}>
+                            <Map/>
+                    </Grid>
+                }
+                <Grid item xs={12} md={6}>
+                    <Grid container
+                          sx={{ height: '100%', padding:'1rem'}}
+                          direction={"column"}
+                          justifyContent={"center"}
+                          alignItems={"center"}>
+                        <Form ref={formRef} onSubmit={handleSubmit}>
+                            <Title>Contact Me</Title>
+                            <Input
+                                ref={inputRefs.name}
+                                type={"text"}
+                                name={"name"}
+                                placeholder={"Your name"}
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                            />
+                            <Input
+                                ref={inputRefs.email}
+                                type={"email"}
+                                name={"email"}
+                                placeholder={"Your email"}
+                                value={email}
+                                onChange={e => handleEmailChange(e)}
+                            />
+                            <InputArea
+                                ref={inputRefs.messege}
+                                placeholder={"Write your messege here"}
+                                value={messege} name={"message"}
+                                rows={10}
+                                onChange={e => setMessege(e.target.value)}
+                            />
+                            <Button type={"submit"}>
+                                {loading ? (<Load><Spin type={"spin"} color={"#ffffff"}/></Load>) : <span>Send</span>}
+                            </Button>
+                        </Form>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                    <Grid container
+                          sx={{ height: '100%',width:'100%', padding:'1rem'}}
+                          direction={"column"}
+                          justifyContent={"flex-end"}
+                          alignItems={"center"}>
+                        <Footer/>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Flip}
+                closeButton={false}
+            />
+        </Box>
+
     )
 }
 export default Contact;

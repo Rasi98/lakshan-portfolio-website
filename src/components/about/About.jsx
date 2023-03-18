@@ -3,58 +3,62 @@ import styled from "styled-components";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-
-const Section = styled.div`
-  height: 100vh;
-  scroll-snap-align: center;
-  display: flex;
-  justify-content: center;
-`;
-
-const Container = styled.div`
-  height: 100vh;
-  width: 80%;
-  display: flex;
-  //justify-content: space-between;
-`;
-
-const Left = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Right = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-`;
+import {Grid} from '@mui/material'
 
 const Title = styled.h1`
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 4rem;
+    margin-bottom: 1.4rem;
+  }
 `;
 
 const Desc = styled.span`
   text-align: center;
   font-style: italic;
-  color: lightgray;
-  font-size: 1.2rem;
+  color: white;
+  font-size: 1.3rem;
   line-height: 1.5;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.2;
+    text-align: justify;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
 `;
+
 const Emoji = styled.span`
   font-style: normal;
 `;
+
 const SocialLinks = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
+  width: 70%;
   margin-top: 2.4rem;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    width: 80%;
+    margin-top: 3rem;
+  }
 `;
 
 const SocialLogo = styled.div`
@@ -63,6 +67,14 @@ const SocialLogo = styled.div`
     :hover{
       transform: scale(1.6);
     }
+
+  @media only screen and (max-width: 900px) {
+    transition: none;
+    
+    :hover{
+      transform: none;
+    }
+  }
 `;
 
 const Link = styled.a`
@@ -88,45 +100,59 @@ const Img = styled.img`
       transform: translateY(7px);
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    height: 230px;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    height: 330px;
+  }
 `;
 
 const About = () => {
     return(
-        <Section>
-          <Container>
-            <Left>
-                <Img src={"../../src/assets/images/lakshan2.png"}/>
-            </Left>
-            <Right>
-                <Title>&lt;About/&gt;</Title>
-                <Desc>
-                    Hi there <Emoji>&#128075;</Emoji>, I'm Lakshan Rasingolla, a passionate
-                    front-end software developer with over a year of industry experience.  I've been always
-                    dedicated to creating innovative and visually appealing web experiences that leave a
-                    lasting impression on users. I believe that every website should be unique, intuitive,
-                    and aesthetically pleasing, which is why I always strive to push the boundaries of what's
-                    possible with the latest technologies. Let's collaborate and bring your web project to life...!
-                </Desc>
-                <SocialLinks>
-                    <SocialLogo>
-                        <Link href={"https://github.com/Rasi98"} target={"_blank"}>
-                            <GitHubIcon style={{height:'30px',width:'30px'}}/>
-                        </Link>
-                    </SocialLogo>
-                    <SocialLogo>
-                        <Link href={"https://www.linkedin.com/in/lakshan-rasingolla/"} target={"_blank"}>
-                            <LinkedInIcon style={{height:'30px',width:'30px'}}/>
-                        </Link>
-                    </SocialLogo>
-                    <SocialLogo>
-                        <Link href={"https://www.instagram.com/lakshan_98_/"} target={"_blank"}>
-                            <InstagramIcon style={{height:'30px',width:'30px'}}/>
-                        </Link>
-                    </SocialLogo>
-                </SocialLinks>
-            </Right>
-          </Container>
-        </Section>
+            <Grid container sx={{ height:'100vh',scrollSnapAlign:'center',padding:{xs:'1rem',md:'2rem 4rem'}}} >
+                <Grid item xs={12} md={6}>
+                    <Grid container sx={{ height: '100%' }} justifyContent={"center"} alignItems={"center"}>
+                        <Img src={"../../src/assets/images/lakshan2.png"}/>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <Grid container
+                          sx={{ height: '100%', padding:'1rem',gap:{xs:'1.5rem',sm:'1rem'}}}
+                          direction={"column"}
+                          justifyContent={"center"}
+                          alignItems={"center"}>
+                        <Title>&lt;About/&gt;</Title>
+                        <Desc>
+                            Hi there <Emoji>&#128075;</Emoji>, I'm Lakshan Rasingolla, a passionate
+                            front-end software developer with over a year of industry experience.  I've been always
+                            dedicated to creating innovative and visually appealing web experiences that leave a
+                            lasting impression on users. I believe that every website should be unique, intuitive,
+                            and aesthetically pleasing, which is why I always strive to push the boundaries of what's
+                            possible with the latest technologies. Let's collaborate and bring your web project to life...!
+                        </Desc>
+                        <SocialLinks>
+                            <SocialLogo>
+                                <Link href={"https://github.com/Rasi98"} target={"_blank"}>
+                                    <GitHubIcon style={{height:'30px',width:'30px'}}/>
+                                </Link>
+                            </SocialLogo>
+                            <SocialLogo>
+                                <Link href={"https://www.linkedin.com/in/lakshan-rasingolla/"} target={"_blank"}>
+                                    <LinkedInIcon style={{height:'30px',width:'30px'}}/>
+                                </Link>
+                            </SocialLogo>
+                            <SocialLogo>
+                                <Link href={"https://www.instagram.com/lakshan_98_/"} target={"_blank"}>
+                                    <InstagramIcon style={{height:'30px',width:'30px'}}/>
+                                </Link>
+                            </SocialLogo>
+                        </SocialLinks>
+                    </Grid>
+                </Grid>
+            </Grid>
     )
 }
 export default About;

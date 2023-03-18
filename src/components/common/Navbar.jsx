@@ -5,6 +5,11 @@ const Section = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+  
 `;
 const Container = styled.div`
   width: 80%;
@@ -12,6 +17,13 @@ const Container = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding: 25px 0px;
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
+    justify-content: center;
+  }
+  @media only screen and (min-width: 900px) and (max-width: 1200px) {
+    justify-content: center;
+  }
 `;
 const List = styled.ul`
   display: flex;

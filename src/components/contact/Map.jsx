@@ -3,9 +3,7 @@ import {
     ComposableMap,
     Geographies,
     Geography,
-    Annotation,
-    Marker,
-    ZoomableGroup
+    Marker
 } from "react-simple-maps";
 import styled from "styled-components";
 
@@ -21,6 +19,7 @@ const MapStyle = styled.div`
 
 
 const Map = () => {
+
     return (
         <MapStyle>
         <ComposableMap
