@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import Navbar from "../common/Navbar.jsx";
 import {MeshDistortMaterial, OrbitControls, Sphere} from "@react-three/drei";
@@ -16,6 +16,7 @@ const Section = styled.div`
 `;
 
 const Container = styled.div`
+  height: 100%;
   width: 80%;
   display: flex;
   justify-content: space-between;
@@ -137,7 +138,7 @@ const Home = () => {
                         <OrbitControls enableZoom={false}/>
                         <ambientLight intensity={1}/>
                         <directionalLight position={[3,2,1]}/>
-                        <Sphere className={"canvas"} args={[1,100,200]} scale={2}>
+                        <Sphere args={[1,100,200]} scale={2}>
                             <MeshDistortMaterial color={"#009991"} attach={"material"} distort={0.24} speed={2}/>
                         </Sphere>
                     </Canvas>
