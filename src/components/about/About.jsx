@@ -115,7 +115,7 @@ const About = () => {
             <Grid container sx={{ height:'100vh',scrollSnapAlign:'center',padding:{xs:'1rem',md:'2rem 4rem'}}} >
                 <Grid item xs={12} md={6}>
                     <Grid container sx={{ height: '100%' }} justifyContent={"center"} alignItems={"center"}>
-                        <Img src={"../../src/assets/images/lakshan2.png"}/>
+                        <Img src={"./img/lakshan2.png"}/>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>

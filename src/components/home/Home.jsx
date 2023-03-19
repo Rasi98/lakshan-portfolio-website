@@ -180,7 +180,7 @@ const Home = () => {
                             <MeshDistortMaterial color={"#009991"} attach={"material"} distort={0.24} speed={2}/>
                         </Sphere>
                     </Canvas>
-                    <Img src={"../src/assets/images/me.png"}></Img>
+                    <Img src={"./img/me.png"}></Img>
                 </Grid>
             </Grid>
         </Grid>

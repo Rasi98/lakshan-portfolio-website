@@ -91,19 +91,19 @@ const Skills = () => {
             <Grid item xs={12} md={6}>
                 <Grid container sx={{ height: '100%' }} justifyContent={"center"} alignItems={"center"}>
                     <Row>
-                        <Col><Img src={"../../src/assets/icons/html.png"}/>HTML</Col>
-                        <Col><Img src={"../../src/assets/icons/css.png"}/>CSS</Col>
-                        <Col><Img src={"../../src/assets/icons/javascript.png"}/>JavaScript</Col>
+                        <Col><Img src={"./img/html.png"}/>HTML</Col>
+                        <Col><Img src={"./img/css.png"}/>CSS</Col>
+                        <Col><Img src={"./img/javascript.png"}/>JavaScript</Col>
                     </Row>
                     <Row>
-                        <Col><Img src={"../../src/assets/icons/react.png"}/>React</Col>
-                        <Col><Img src={"../../src/assets/icons/node.png"}/>NodeJs</Col>
-                        <Col><Img src={"../../src/assets/icons/mongo.png"}/>MongoDB</Col>
+                        <Col><Img src={"./img/react.png"}/>React</Col>
+                        <Col><Img src={"./img/node.png"}/>NodeJs</Col>
+                        <Col><Img src={"./img/mongo.png"}/>MongoDB</Col>
                     </Row>
                     <Row>
-                        <Col><Img src={"../../src/assets/icons/python.png"}/>Python</Col>
-                        <Col><Img src={"../../src/assets/icons/java.png"}/>Java</Col>
-                        <Col><Img src={"../../src/assets/icons/sql.png"}/>SQL</Col>
+                        <Col><Img src={"./img/python.png"}/>Python</Col>
+                        <Col><Img src={"./img/java.png"}/>Java</Col>
+                        <Col><Img src={"./img/sql.png"}/>SQL</Col>
                     </Row>
                 </Grid>
             </Grid>

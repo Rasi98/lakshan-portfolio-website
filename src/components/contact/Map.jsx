@@ -32,7 +32,7 @@ const Map = () => {
             style={{width:"100%",height:"100%", animation:''}}
         >
             <Geographies
-                geography="../src/components/static/features.json"
+                geography="/features.json"
                 fill="rgb(8, 209, 152, 0.8)"
                 stroke="white"
                 strokeWidth={0.5}

@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Map from "./Map.jsx";
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import ReactLoading from 'react-loading';
-import emailData from '../static/emailjs.json';
 import {Box, Grid} from "@mui/material";
 
 const Form = styled.form`
@@ -106,7 +105,7 @@ const Contact = () => {
         e.preventDefault();
         if (ValidateInput()){
             setLoading(true);
-            emailjs.sendForm(emailData.serviceID, emailData.templateID, formRef.current, emailData.publicKey)
+            emailjs.sendForm("service_fb0taa3", "template_27mfgp7", formRef.current, "user_kQqQRkZz760tReiYhbwkK")
                 .then((result) => {
                     if (result.text === "OK"){
                         handleReset();

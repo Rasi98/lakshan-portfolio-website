@@ -11,7 +11,7 @@ const Container = styled.div`
   scroll-behavior: smooth;
   overflow-y: auto;
   color: white;
-  background-image: url("../src/assets/images/bg.jpg");
+  background-image: url("./img/bg.jpg");
   background-position: center;
   background-size: cover;
   scrollbar-width: none;
@@ -24,10 +24,10 @@ function App() {
 
   return (
     <Container>
-      <Home/>
-      <About/>
+        <Home/>
+        <About/>
         <Skills/>
-      <Contact/>
+        <Contact/>
     </Container>
   )
 }
