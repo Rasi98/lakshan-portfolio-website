@@ -77,7 +77,7 @@ const Skills = () => {
                 <Grid container
                       sx={{ height: '100%', padding:'1rem',gap:{xs:'1.5rem',sm:'1rem',marginBottom:{md:'2rem'}}}}
                       direction={"column"}
-                      justifyContent={"center"}
+                      justifyContent={{xs:'flex-start',md:'flex-start',lg:'center'}}
                       alignItems={"center"}>
                     <Title>&lt;Skills/&gt;</Title>
                     <Desc>
