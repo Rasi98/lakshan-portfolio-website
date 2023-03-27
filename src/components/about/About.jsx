@@ -102,12 +102,37 @@ const Img = styled.img`
   }
 
   @media only screen and (max-width: 600px) {
-    height: 230px;
+    height: 200px;
+    animation: none;
   }
 
   @media only screen and (min-width: 600px) and (max-width: 900px) {
     height: 330px;
   }
+`;
+
+const Button = styled.button`
+  width: fit-content;
+  padding: 5px 15px;
+  border: 2px solid rgb(20,203,189);
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: rgb(20,203,189,0.2);
+  color: white;
+  
+  :hover {
+    background-color: rgb(20,203,189);
+  }
+
+  //@media only screen and (max-width: 600px) {
+  //  display: block;
+  //}
+  //
+  //@media only screen and (min-width: 600px) and (max-width: 900px) {
+  //  display: block;
+  //}
+  
 `;
 
 const About = () => {
@@ -133,6 +158,7 @@ const About = () => {
                             and aesthetically pleasing, which is why I always strive to push the boundaries of what's
                             possible with the latest technologies. Let's collaborate and bring your web project to life...!
                         </Desc>
+                        <Button><Link href={"https://drive.google.com/file/d/1B6Rx2FVV8Blvqa-pJlbBXHaUwbt7sqYV/view?usp=sharing"} target={"_blank"}>View Resume</Link></Button>
                         <SocialLinks>
                             <SocialLogo>
                                 <Link href={"https://github.com/Rasi98"} target={"_blank"}>

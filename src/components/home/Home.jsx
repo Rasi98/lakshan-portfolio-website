@@ -77,9 +77,11 @@ const Line = styled.hr`
   width: 100%;
   border: 1px solid lightgray;
   border-radius: 2px;
+  margin-bottom: 1rem;
 
   @media only screen and (max-width: 600px) {
     width: 90%;
+    
   }
 `;
 
@@ -166,10 +168,10 @@ const Home = () => {
                         />
                     </Title>
                     <Heading><NormalText>Hi there! I'm </NormalText><Name>Lakshan Rasingolla</Name></Heading>
-                    <Desc>" I'm a front-end software developer who is crafting clean, elegant and efficient code that brings ideas into reality.
-                        I enjoy the journey of coding and creating exceptional digital solutions "</Desc>
                     <Line/>
-                    <Button>Let's talk</Button>
+                    <Desc>" I'm a software developer who is crafting clean, elegant and efficient code that brings ideas into reality.
+                        I enjoy the journey of coding and creating exceptional digital solutions "</Desc>
+                    {/*<Button>Let's talk</Button>*/}
                 </Grid>
                 <Grid item xs={12} md={12} lg={6} sx={{position:'relative',padding:'3px'}}>
                     <Canvas>

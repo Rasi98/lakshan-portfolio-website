@@ -2,11 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const Section = styled.div`
-  display: flex;
+  //display: flex;
   justify-content: center;
   width: 100%;
+  display: none;
 
   @media only screen and (max-width: 600px) {
+    display: none;
+  }
+
+  @media only screen and (min-width: 600px) and (max-width: 900px) {
     display: none;
   }
   
@@ -80,7 +85,18 @@ const Button = styled.button`
   }
 `;
 
-const Navbar = () => {
+const Link = styled.a`
+  text-decoration:none;
+  :visited{
+    color: white;
+    text-decoration: none;
+  }
+  :hover{
+    cursor: pointer;
+  }
+`;
+
+const Navbar = (props) => {
     return(
         <Section>
             <Container>
@@ -89,7 +105,7 @@ const Navbar = () => {
                         <ListItem>About</ListItem>
                         <ListItem>Skills</ListItem>
                         <ListItem>Contact</ListItem>
-                        <Button>Resume</Button>
+                        <Button><Link href={"https://drive.google.com/file/d/1B6Rx2FVV8Blvqa-pJlbBXHaUwbt7sqYV/view?usp=sharing"} target={"_blank"}>Resume</Link></Button>
                     </List>
             </Container>
         </Section>
