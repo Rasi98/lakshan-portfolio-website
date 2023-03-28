@@ -79,10 +79,18 @@ const SocialLogo = styled.div`
 
 const Link = styled.a`
   text-decoration:none;
+  color:white;
+  
   :visited{
     color: white;
     text-decoration: none;
   }
+  
+  :active{
+    color: white;
+    text-decoration: none;
+  }
+  
   :hover{
     cursor: pointer;
   }
@@ -158,7 +166,7 @@ const About = () => {
                             and aesthetically pleasing, which is why I always strive to push the boundaries of what's
                             possible with the latest technologies. Let's collaborate and bring your web project to life...!
                         </Desc>
-                        <Button><Link href={"https://drive.google.com/file/d/1B6Rx2FVV8Blvqa-pJlbBXHaUwbt7sqYV/view?usp=sharing"} target={"_blank"}>View Resume</Link></Button>
+                        <Button><Link href={"https://drive.google.com/file/d/1TbXZhCmP7vz1G7S46xSm1MxY6Pc1iGAR/view?usp=sharing"} target={"_blank"}>View Resume</Link></Button>
                         <SocialLinks>
                             <SocialLogo>
                                 <Link href={"https://github.com/Rasi98"} target={"_blank"}>
