@@ -166,7 +166,7 @@ const About = () => {
                             and aesthetically pleasing, which is why I always strive to push the boundaries of what's
                             possible with the latest technologies. Let's collaborate and bring your web project to life...!
                         </Desc>
-                        <Button><Link href={"https://drive.google.com/file/d/1TbXZhCmP7vz1G7S46xSm1MxY6Pc1iGAR/view?usp=sharing"} target={"_blank"}>View Resume</Link></Button>
+                        <Button><Link href={"https://drive.google.com/file/d/1R4s_h0Nc451aQp7oMfJjxgLjMGpK5YL3/view?usp=sharing"} target={"_blank"}>View Resume</Link></Button>
                         <SocialLinks>
                             <SocialLogo>
                                 <Link href={"https://github.com/Rasi98"} target={"_blank"}>

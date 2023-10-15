@@ -171,14 +171,13 @@ const Home = () => {
                     <Line/>
                     <Desc>" I'm a software developer who is crafting clean, elegant and efficient code that brings ideas into reality.
                         I enjoy the journey of coding and creating exceptional digital solutions "</Desc>
-                    {/*<Button>Let's talk</Button>*/}
                 </Grid>
                 <Grid item xs={12} md={12} lg={6} sx={{position:'relative',padding:'3px'}}>
                     <Canvas>
                         <OrbitControls enableZoom={false}/>
                         <ambientLight intensity={1}/>
                         <directionalLight position={[3,2,1]}/>
-                        <Sphere args={[1,100,200]} scale={2}>
+                        <Sphere args={[1,100,200]} scale={1.7}>
                             <MeshDistortMaterial color={"#009991"} attach={"material"} distort={0.24} speed={2}/>
                         </Sphere>
                     </Canvas>

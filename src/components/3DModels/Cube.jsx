@@ -1,6 +1,6 @@
 import React from "react";
 import {Canvas} from "@react-three/fiber";
-import {OrbitControls, PerspectiveCamera, RenderTexture, Text} from "@react-three/drei";
+import {OrbitControls} from "@react-three/drei";
 
 
 const Cube = () => {
